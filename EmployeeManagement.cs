@@ -1,4 +1,4 @@
-﻿
+
 namespace Main
 {
     public class EmployeeManagement
@@ -63,7 +63,8 @@ namespace Main
                 SalariedEmployee Salariedemployee = new SalariedEmployee ();
                 employee.Type = EmployeeType.salariedemployee;
                 Console.Write("Enter Employee Basic Salary: ");
-                Salariedemployee.BaiscSalary = double.Parse(Console.ReadLine());
+                double TempSalary =  double.Parse(Console.ReadLine());
+                Salariedemployee.SetSalary(TempSalary);
                 employee.Salary = Salariedemployee.CalculateSalary();
             }
             else if(employeetype == 2)
@@ -126,6 +127,7 @@ namespace Main
         }
 
         /*--------------------------------------------------------------------------------------------*/
+        
         /// <summary>
         /// Deletes an employee from the system by their ID.
         /// Asks for confirmation before deletion.
