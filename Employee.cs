@@ -1,4 +1,4 @@
-﻿
+
 namespace Main
 {
     public class Employee
@@ -24,14 +24,26 @@ namespace Main
 
     public class Department
     {
-        public double EmployeesNumber { get; set; }
+        public double EmployeesNumber { get;  set; }
         public double TotalSalary { get; set; }
         public string Name { get; set; }
     }
 
     public class SalariedEmployee : Employee
     {
-        public  double BaiscSalary { set; get; }
+        public  double BaiscSalary { set; private get; }
+        public void SetSalary(double _Basicsalary)
+        {
+
+            if (_Basicsalary < 4000)
+            {
+                throw new Exception("Salary Can't Be Less Than 4000");
+            }
+            else
+            {
+                BaiscSalary = _Basicsalary;
+            }
+        }
         public override double CalculateSalary()
         {
             
